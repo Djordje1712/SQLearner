@@ -1,0 +1,138 @@
+.theme-demo-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    opacity: 0.8;
+    margin-bottom: 24px;
+  }
+
+  .theme-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+  }
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.demo-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  mat-card-content {
+    flex-grow: 1;
+  }
+
+  mat-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px;
+  }
+}
+
+.color-samples {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+  
+  .color-sample {
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    flex: 1;
+    
+    &.primary {
+      background-color: var(--mat-primary-500);
+    }
+    
+    &.accent {
+      background-color: var(--mat-accent-500);
+    }
+    
+    &.warn {
+      background-color: var(--mat-warn-500);
+    }
+  }
+}
+
+.theme-variables-demo {
+  margin-top: 48px;
+  
+  h2 {
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+  }
+}
+
+.samples-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.sample {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  h4 {
+    margin-bottom: 8px;
+  }
+  
+  code {
+    margin-top: 8px;
+    background-color: var(--hover-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+}
+
+.color-box {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border-color);
+  
+  &.background {
+    background-color: var(--background-color);
+  }
+  
+  &.text {
+    background-color: var(--text-color);
+  }
+  
+  &.card {
+    background-color: var(--card-background);
+  }
+  
+  &.border {
+    background-color: var(--border-color);
+  }
+}

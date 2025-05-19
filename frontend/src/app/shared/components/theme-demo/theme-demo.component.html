@@ -1,0 +1,67 @@
+<div class="theme-demo-container">
+  <div class="header">
+    <h1>Theme Demo</h1>
+    <p class="subtitle">This demonstrates light and dark theme components</p>
+    <div class="theme-toggle-wrapper">
+      <span>Try the theme toggle: </span>
+      <app-theme-toggle></app-theme-toggle>
+    </div>
+  </div>
+
+  <div class="cards-grid">
+    <mat-card *ngFor="let card of cards" class="demo-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar [color]="card.color">{{ card.icon }}</mat-icon>
+        <mat-card-title>{{ card.title }}</mat-card-title>
+        <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ card.content }}</p>
+        <div class="color-samples">
+          <div class="color-sample primary">Primary</div>
+          <div class="color-sample accent">Accent</div>
+          <div class="color-sample warn">Warn</div>
+        </div>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <button mat-button [color]="card.color">BUTTON</button>
+        <button mat-raised-button [color]="card.color">RAISED</button>
+        <button mat-stroked-button [color]="card.color">STROKED</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <section class="theme-variables-demo">
+    <h2>Theme Variables Demo</h2>
+    <p>The following elements use custom CSS variables that adapt to the theme:</p>
+    
+    <div class="theme-card">
+      <h3>Custom Theme Card</h3>
+      <p>This card uses custom theme variables for background and text colors</p>
+    </div>
+
+    <div class="samples-container">
+      <div class="sample">
+        <h4>Background</h4>
+        <div class="color-box background"></div>
+        <code>var(--background-color)</code>
+      </div>
+      <div class="sample">
+        <h4>Text</h4>
+        <div class="color-box text"></div>
+        <code>var(--text-color)</code>
+      </div>
+      <div class="sample">
+        <h4>Card Background</h4>
+        <div class="color-box card"></div>
+        <code>var(--card-background)</code>
+      </div>
+      <div class="sample">
+        <h4>Border Color</h4>
+        <div class="color-box border"></div>
+        <code>var(--border-color)</code>
+      </div>
+    </div>
+  </section>
+</div>

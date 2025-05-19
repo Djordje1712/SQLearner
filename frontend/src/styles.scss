@@ -1,40 +1,139 @@
+// Import pre-built Angular Material themes for simplicity
+// This is the most reliable approach for Angular Material 18
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat.core();
-
-// Define the theme object.
-$frontend-theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: mat.$azure-palette,
-    tertiary: mat.$blue-palette,
-  ),
-  density: (
-    scale: 0,
-  )
-));
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
+// Define custom CSS variables for our theme
 :root {
-  @include mat.all-component-themes($frontend-theme);
+  // Light theme colors (default)
+  --primary-color: #3f51b5;      // Indigo
+  --accent-color: #ff4081;       // Pink
+  --warn-color: #f44336;         // Red
+  
+  // Light theme custom variables
+  --background-color: #f5f5f5;
+  --text-color: #333333;
+  --card-background: #ffffff;
+  --border-color: #e0e0e0;
+  --hover-color: rgba(0, 0, 0, 0.04);
 }
 
-// Comment out the line below if you want to use the pre-defined typography utility classes.
-// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
-// @include mat.typography-hierarchy($frontend-theme);
+// Dark theme class that overrides the CSS variables
+body.dark-theme {
+  // In dark mode we'll use the pink-bluegrey theme
+  --primary-color: #c2185b;      // Pink
+  --accent-color: #b0bec5;       // Blue Grey
+  --warn-color: #f44336;         // Red
+  
+  // Dark theme custom variables
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --card-background: #1e1e1e;
+  --border-color: #333333;
+  --hover-color: rgba(255, 255, 255, 0.1);
+}
 
-// Comment out the line below if you want to use the deprecated `color` inputs.
-// @include mat.color-variants-backwards-compatibility($frontend-theme);
-/* You can add global styles to this file, and also import other style files */
+// Global styles
+html, body { 
+  height: 100%; 
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Material component overrides
+.mat-mdc-card {
+  background-color: var(--card-background) !important;
+  border: 1px solid var(--border-color);
+}
+
+.mat-mdc-table {
+  background-color: var(--card-background) !important;
+}
+
+// Link styling
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+body.dark-theme a {
+  color: #90caf9; // Lighter blue for dark theme
+}
+
+// Custom theme elements
+.theme-border {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.theme-card {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+body.dark-theme .theme-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+// Form controls in dark mode
+body.dark-theme .mat-mdc-form-field-label {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+body.dark-theme .mat-mdc-input-element {
+  color: white !important;
+}
+
+body.dark-theme .mat-mdc-form-field-underline {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+// Theme transitions for smoother theme switching
+body, 
+.mat-drawer-container, 
+.mat-drawer, 
+.mat-toolbar {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Material toolbar in dark mode
+body.dark-theme .mat-toolbar.mat-primary {
+  background-color: #1e1e1e !important;
+  color: white;
+}
+
+// Material toolbar in light mode (default)
+.mat-toolbar.mat-primary {
+  color: white;
+}
+
+// Material button colors
+.mat-mdc-raised-button.mat-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.mat-mdc-raised-button.mat-accent {
+  background-color: var(--accent-color) !important;
+}
+
+.mat-mdc-raised-button.mat-warn {
+  background-color: var(--warn-color) !important;
+}
+
+// Material icons in dark mode
+body.dark-theme .mat-icon {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+// Add opacity to disabled buttons in dark mode
+body.dark-theme .mat-mdc-button-disabled {
+  opacity: 0.5;
+}

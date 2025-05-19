@@ -1,1 +1,12 @@
-<router-outlet />
+<div class="app-container">
+  <mat-toolbar color="primary" class="app-toolbar">
+    <span>SQLearner</span>
+    <span class="spacer"></span>
+    <a mat-button routerLink="/theme-demo">Theme Demo</a>
+    <app-theme-toggle></app-theme-toggle>
+  </mat-toolbar>
+
+  <div class="content-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: 'auth', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) },
+  { path: 'theme-demo', loadComponent: () => import('./shared/components/theme-demo/theme-demo.component').then(c => c.ThemeDemoComponent) },
 ];
 
 @NgModule({

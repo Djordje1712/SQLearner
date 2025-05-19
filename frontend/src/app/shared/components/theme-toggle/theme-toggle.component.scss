@@ -1,0 +1,13 @@
+.theme-toggle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-icon {
+  transition: transform 0.3s ease;
+}
+
+:host {
+  display: inline-block;
+}

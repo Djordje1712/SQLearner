@@ -1,0 +1,41 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  // Fill the entire screen and handle overflow properly
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.app-toolbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.theme-toggle-button {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.content-container {
+  margin-top: 64px; // Toolbar height
+  padding: 16px;
+  flex: 1;
+}
+
+// Theme transition for smoother theme changes
+body, .mat-drawer-container, .mat-drawer, .mat-toolbar {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

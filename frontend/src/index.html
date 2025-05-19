@@ -2,14 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Frontend</title>
+  <title>SQLearner</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#3f51b5">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1a1a">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Prevent FOUC (Flash Of Unstyled Content) during theme loading -->
+  <style>
+    body { visibility: hidden; }
+  </style>
 </head>
 <body class="mat-typography">
   <app-root></app-root>
+  <script>
+    // Fix FOUC by showing content after it's fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.style.visibility = 'visible';
+    });
+  </script>
 </body>
 </html>
